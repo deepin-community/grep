@@ -1,4 +1,4 @@
-grep (3.7-deepin) stable; urgency=medium
+grep (3.7.1-deepin) stable; urgency=medium
 
   * ['Rebuild  against by  current gcc 11.2']
 

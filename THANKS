@@ -24,6 +24,7 @@ Bernhard Voelker                    mail@bernhard-voelker.de
 Bob Proulx                          rwp@hprwp.fc.hp.com
 Brian Youmans                       3diff@gnu.org
 Bruno Haible                        bruno@clisp.org
+Carlo Marcelo Arenas Belón          carenas@gmail.com
 Charles Levert                      charles_levert@gna.org
 Christian Boltz                     grep-bug@cboltz.de
 Christian Groessler                 cpg@aladdin.de
@@ -38,6 +39,7 @@ Dmitry V. Levin                     ldv@altlinux.org
 'Drake' Daham Wang                  drakewang@gmail.com
 Egmont Koblinger                    egmont@gmail.com
 Eli Zaretskii                       eliz@gnu.org
+Emanuele Torre                      torreemanuele6@gmail.com
 Eric Blake                          eblake@redhat.com
 Fernando Basso                      fernandobasso.br@gmail.com
 Florian La Roche                    laroche@redhat.com
@@ -46,6 +48,7 @@ Gerald Stoller                      gerald_stoller@hotmail.com
 Grant McDorman                      grant@isgtec.com
 Greg Boyd                           gboyd.ccsf@gmail.com
 Greg Louis                          glouis@dynamicro.on.ca
+Gro-Tsen                            https://twitter.com/gro_tsen
 Guglielmo 'bond' Bondioni           g.bondioni@libero.it
 H. Merijn Brand                     h.m.brand@hccnet.nl
 Hans-Bernhard Broeker               broeker@physik.rwth-aachen.de
@@ -60,6 +63,7 @@ Javier Villavicencio                the_paya@gentoo.org
 Jeff Bailey                         jbailey@nisa.net
 Jim Hand                            jhand@austx.tandem.com
 Jim Meyering                        jim@meyering.net
+Jim Meyering                        meyering@meta.com
 Jochen Hein                         jochen.hein@delphi.central.de
 Joel N. Weber II                    devnull@gnu.org
 Johan Walles                        johan.walles@gmail.com
@@ -69,9 +73,12 @@ Juan Manuel Guerrero                juan.guerrero@gmx.de
 Julian Foad                         julianfoad@btopenworld.com
 Karl Berry                          karl@gnu.org
 Karl Heuer                          kwzh@gnu.org
+Karl Pettersson                     karl.pettersson@klpn.se
 Kaveh R. Ghazi                      ghazi@caip.rutgers.edu
 Kazuro Furukawa                     furukawa@apricot.kek.jp
 Keith Bostic                        bostic@bsdi.com
+Kevin Locke                         kevin@kevinlocke.name
+Koen Claessen                       koen@chalmers.se
 Krishna Sethuraman                  krishna@sgihub.corp.sgi.com
 Kurt D Schwehr                      kdschweh@insci14.ucsd.edu
 Ludovic Courtès                     ludo@gnu.org
@@ -81,6 +88,7 @@ Mark Veltzer                        mark.veltzer@gmail.com
 Mark Waite                          markw@mddmew.fc.hp.com
 Martin P.J. Zinser                  zinser@decus.de
 Martin Rex                          martin.rex@sap-ag.de
+Mateusz Okulus                      mmokulus@gmail.com
 Matthew Burgess                     matthew@linuxfromscratch.org
 Michael Aichlmayr                   mikla@nx.com
 Mike Frysinger                      vapier@gentoo.org
@@ -92,6 +100,7 @@ Nicolas Vigier                      boklm@mars-attacks.org
 Nima Aghdaii                        naghdaii@fb.com
 Norihiro Tanaka                     noritnk@kcn.ne.jp
 Olaf Kirch                          okir@ns.lst.de
+Ondřej Fiala                        temp.xanomes@volny.cz
 Pádraig Brady                       P@draigBrady.com
 Paolo Bonzini                       bonzini@gnu.org
 Patrick Boyd                        pboyd04@gmail.com
@@ -111,6 +120,7 @@ Roland Roberts                      rroberts@muller.com
 Ruslan Ermilov                      ru@freebsd.org
 Santiago Ruano Rincón               santiago@debian.org
 Santiago Vila                       sanvila@unex.es
+Sebastian Carlos                    sebaaa1754@gmail.com
 Shannon Hill                        hill@synnet.com
 Sotiris Vassilopoulos               Sotiris.Vassilopoulos@betatech.gr
 Standish Parsley                    adsspamtrap01@yahoo.com
@@ -129,6 +139,7 @@ Tom Tromey                          tromey@creche.cygnus.com
 Tony Abou-Assaleh                   taa@acm.org
 UEBAYASHI Masao                     masao@nf.enveng.titech.ac.jp
 Ulrich Drepper                      drepper@cygnus.com
+Ulrich Eckhardt                     ulrich.eckhardt@base-42.de
 Uwe H. Steinfeld                    usteinfeld@gmx.net
 Volker Borchert                     bt@teknon.de
 Wichert Akkerman                    wichert@cistron.nl

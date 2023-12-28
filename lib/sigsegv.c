@@ -1,5 +1,5 @@
 /* Page fault handling library.
-   Copyright (C) 1993-2021 Free Software Foundation, Inc.
+   Copyright (C) 1993-2023 Free Software Foundation, Inc.
    Copyright (C) 2018  Nylon Chen <nylon7@andestech.com>
 
    This program is free software: you can redistribute it and/or modify
@@ -61,7 +61,7 @@ int libsigsegv_version = LIBSIGSEGV_VERSION;
           occurred.
  */
 
-#if defined __linux__ || defined __ANDROID__ /* Linux */
+#if defined __linux__ && !defined __ANDROID__ /* Linux */
 
 # define SIGSEGV_FAULT_HANDLER_ARGLIST  int sig, siginfo_t *sip, void *ucp
 # define SIGSEGV_FAULT_ADDRESS  sip->si_addr
@@ -168,6 +168,15 @@ int libsigsegv_version = LIBSIGSEGV_VERSION;
    because $bsp and $bspstore never differ by more than ca. 1 KB.  */
 #  define SIGSEGV_FAULT_BSP_POINTER  ((ucontext_t *) ucp)->uc_mcontext.sc_ar_bsp
 
+# elif defined __loongarch__
+
+/* See <sys/ucontext.h>.
+   Note that the 'mcontext_t' defined in <sys/ucontext.h>
+   and the 'struct sigcontext' defined in <bits/sigcontext.h>
+   (see also <asm/sigcontext.h>) are effectively the same.  */
+
+#  define SIGSEGV_FAULT_STACKPOINTER  ((ucontext_t *) ucp)->uc_mcontext.__gregs[3]
+
 # elif defined __m68k__
 
 /* See glibc/sysdeps/unix/sysv/linux/m68k/sys/ucontext.h
@@ -218,11 +227,28 @@ int libsigsegv_version = LIBSIGSEGV_VERSION;
 #  if defined __powerpc64__ || defined __powerpc64_elfv2__ /* 64-bit */
 #   define SIGSEGV_FAULT_STACKPOINTER  ((ucontext_t *) ucp)->uc_mcontext.gp_regs[1]
 #  else /* 32-bit */
-/* both should be equivalent */
-#   if 0
-#    define SIGSEGV_FAULT_STACKPOINTER  ((ucontext_t *) ucp)->uc_mcontext.regs->gpr[1]
+#   if MUSL_LIBC
+/* musl libc has a different structure of ucontext_t in
+   musl/arch/powerpc/bits/signal.h.  */
+/* The glibc comments say:
+     "Different versions of the kernel have stored the registers on signal
+      delivery at different offsets from the ucontext struct.  Programs should
+      thus use the uc_mcontext.uc_regs pointer to find where the registers are
+      actually stored."  */
+#    if 0
+#     define SIGSEGV_FAULT_STACKPOINTER  ((ucontext_t *) ucp)->uc_mcontext.gregs[1]
+#    else
+#     define SIGSEGV_FAULT_STACKPOINTER  ((ucontext_t *) ucp)->uc_regs->gregs[1]
+#    endif
 #   else
-#    define SIGSEGV_FAULT_STACKPOINTER  ((ucontext_t *) ucp)->uc_mcontext.uc_regs->gregs[1]
+/* Assume the structure of ucontext_t in
+   glibc/sysdeps/unix/sysv/linux/powerpc/sys/ucontext.h.  */
+/* Because of the union, both definitions should be equivalent.  */
+#    if 0
+#     define SIGSEGV_FAULT_STACKPOINTER  ((ucontext_t *) ucp)->uc_mcontext.regs->gpr[1]
+#    else
+#     define SIGSEGV_FAULT_STACKPOINTER  ((ucontext_t *) ucp)->uc_mcontext.uc_regs->gregs[1]
+#    endif
 #   endif
 #  endif
 
@@ -319,6 +345,17 @@ int libsigsegv_version = LIBSIGSEGV_VERSION;
    glibc/sysdeps/unix/sysv/linux/<cpu>/sigcontextinfo.h.  */
 
 # endif
+
+#endif
+
+#if defined __ANDROID__ /* Android */
+/* A platform that supports the POSIX:2008 (XPG 7) way, without
+   'struct sigcontext' nor 'ucontext_t'.  */
+
+# define SIGSEGV_FAULT_HANDLER_ARGLIST  int sig, siginfo_t *sip, void *context
+# define SIGSEGV_FAULT_ADDRESS  sip->si_addr
+# define SIGSEGV_FAULT_CONTEXT  context
+# define SIGSEGV_FAULT_ADDRESS_FROM_SIGINFO
 
 #endif
 
@@ -511,7 +548,14 @@ int libsigsegv_version = LIBSIGSEGV_VERSION;
 
 #  define SIGSEGV_FAULT_STACKPOINTER  scp->sc_regs[29]
 
-# elif defined __powerpc__ || defined __powerpc64__
+# elif defined __powerpc64__
+
+/* See the definition of 'struct sigcontext' in
+   openbsd-src/sys/arch/powerpc64/include/signal.h.  */
+
+#  define SIGSEGV_FAULT_STACKPOINTER  scp->sc_sp
+
+# elif defined __powerpc__
 
 /* See the definition of 'struct sigcontext' and 'struct trapframe' in
    openbsd-src/sys/arch/powerpc/include/signal.h.  */
@@ -1167,7 +1211,7 @@ install_for (int sig)
   struct sigaction action;
 
 # ifdef SIGSEGV_FAULT_ADDRESS_FROM_SIGINFO
-  action.sa_sigaction = &sigsegv_handler;
+  action.sa_sigaction = (void (*) (int, siginfo_t *, void *)) &sigsegv_handler;
 # else
   action.sa_handler = (void (*) (int)) &sigsegv_handler;
 # endif

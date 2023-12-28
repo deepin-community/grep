@@ -1,11 +1,11 @@
 /* exclude.c -- exclude file names
 
-   Copyright (C) 1992-1994, 1997, 1999-2007, 2009-2021 Free Software
+   Copyright (C) 1992-1994, 1997, 1999-2007, 2009-2023 Free Software
    Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3 of the License, or
+   the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
 
    This program is distributed in the hope that it will be useful,
@@ -23,8 +23,6 @@
 
 #include <config.h>
 
-#include <stdbool.h>
-
 #include <ctype.h>
 #include <errno.h>
 #include <stddef.h>
@@ -39,7 +37,6 @@
 #include "mbuiter.h"
 #include "fnmatch.h"
 #include "xalloc.h"
-#include "verify.h"
 #include "filename.h"
 
 #if GNULIB_EXCLUDE_SINGLE_THREAD
@@ -57,10 +54,10 @@
 # define FNM_LEADING_DIR 0
 #endif
 
-verify (((EXCLUDE_ANCHORED | EXCLUDE_INCLUDE | EXCLUDE_WILDCARDS)
-         & (FNM_PATHNAME | FNM_NOESCAPE | FNM_PERIOD | FNM_LEADING_DIR
-            | FNM_CASEFOLD | FNM_EXTMATCH))
-        == 0);
+static_assert (((EXCLUDE_ANCHORED | EXCLUDE_INCLUDE | EXCLUDE_WILDCARDS)
+                & (FNM_PATHNAME | FNM_NOESCAPE | FNM_PERIOD | FNM_LEADING_DIR
+                   | FNM_CASEFOLD | FNM_EXTMATCH))
+               == 0);
 
 
 /* Exclusion patterns are grouped into a singly-linked list of
@@ -602,7 +599,7 @@ add_exclude (struct exclude *ex, char const *pattern, int options)
 /* Use ADD_FUNC to append to EX the patterns in FILE_NAME, each with
    OPTIONS.  LINE_END terminates each pattern in the file.  If
    LINE_END is a space character, ignore trailing spaces and empty
-   lines in FP.  Return -1 on failure, 0 on success.  */
+   lines in FP.  Return -1 (setting errno) on failure, 0 on success.  */
 
 int
 add_exclude_fp (void (*add_func) (struct exclude *, char const *, int, void *),
@@ -674,19 +671,16 @@ add_exclude_file (void (*add_func) (struct exclude *, char const *, int),
                   struct exclude *ex, char const *file_name, int options,
                   char line_end)
 {
-  bool use_stdin = file_name[0] == '-' && !file_name[1];
-  FILE *in;
-  int rc = 0;
+  if (strcmp (file_name, "-") == 0)
+    return add_exclude_fp (call_addfn, ex, stdin, options, line_end, &add_func);
 
-  if (use_stdin)
-    in = stdin;
-  else if (! (in = fopen (file_name, "re")))
+  FILE *in = fopen (file_name, "re");
+  if (!in)
     return -1;
-
-  rc = add_exclude_fp (call_addfn, ex, in, options, line_end, &add_func);
-
-  if (!use_stdin && fclose (in) != 0)
-    rc = -1;
-
+  int rc = add_exclude_fp (call_addfn, ex, in, options, line_end, &add_func);
+  int e = errno;
+  if (fclose (in) != 0)
+    return -1;
+  errno = e;
   return rc;
 }

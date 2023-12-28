@@ -1,6 +1,6 @@
 /* Convert string representation of a number into an integer value.
 
-   Copyright (C) 1991-1992, 1994-1999, 2003, 2005-2007, 2009-2021 Free Software
+   Copyright (C) 1991-1992, 1994-1999, 2003, 2005-2007, 2009-2023 Free Software
    Foundation, Inc.
 
    NOTE: The canonical source of this file is maintained with the GNU C
@@ -8,7 +8,7 @@
 
    This file is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as
-   published by the Free Software Foundation; either version 3 of the
+   published by the Free Software Foundation, either version 3 of the
    License, or (at your option) any later version.
 
    This file is distributed in the hope that it will be useful,
@@ -288,6 +288,11 @@ INTERNAL (strtol) (const STRING_TYPE *nptr, STRING_TYPE **endptr,
           s += 2;
           base = 16;
         }
+      else if ((base == 0 || base == 2) && TOUPPER (s[1]) == L_('B'))
+        {
+          s += 2;
+          base = 2;
+        }
       else if (base == 0)
         base = 8;
     }
@@ -378,11 +383,14 @@ INTERNAL (strtol) (const STRING_TYPE *nptr, STRING_TYPE **endptr,
 noconv:
   /* We must handle a special case here: the base is 0 or 16 and the
      first two characters are '0' and 'x', but the rest are no
-     hexadecimal digits.  This is no error case.  We return 0 and
-     ENDPTR points to the 'x'.  */
+     hexadecimal digits.  Likewise when the base is 0 or 2 and the
+     first two characters are '0' and 'b', but the rest are no binary
+     digits.  This is no error case.  We return 0 and ENDPTR points to
+     the 'x' or 'b'.  */
   if (endptr != NULL)
     {
-      if (save - nptr >= 2 && TOUPPER (save[-1]) == L_('X')
+      if (save - nptr >= 2
+          && (TOUPPER (save[-1]) == L_('X') || TOUPPER (save[-1]) == L_('B'))
           && save[-2] == L_('0'))
         *endptr = (STRING_TYPE *) &save[-1];
       else

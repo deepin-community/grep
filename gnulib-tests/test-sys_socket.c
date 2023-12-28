@@ -1,9 +1,9 @@
 /* Test of <sys/socket.h> substitute.
-   Copyright (C) 2007, 2009-2021 Free Software Foundation, Inc.
+   Copyright (C) 2007, 2009-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3 of the License, or
+   the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
 
    This program is distributed in the hope that it will be useful,
@@ -19,8 +19,6 @@
 #include <config.h>
 
 #include <sys/socket.h>
-
-#include <errno.h>
 
 #if HAVE_SHUTDOWN
 /* Check some integer constant expressions.  */
@@ -39,6 +37,8 @@ struct iovec io;
 
 /* Check that a minimal set of 'struct msghdr' is defined.  */
 struct msghdr msg;
+
+#include <errno.h>
 
 int
 main (void)

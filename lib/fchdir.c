@@ -1,9 +1,9 @@
 /* fchdir replacement.
-   Copyright (C) 2006-2021 Free Software Foundation, Inc.
+   Copyright (C) 2006-2023 Free Software Foundation, Inc.
 
    This file is free software: you can redistribute it and/or modify
    it under the terms of the GNU Lesser General Public License as
-   published by the Free Software Foundation; either version 3 of the
+   published by the Free Software Foundation, either version 3 of the
    License, or (at your option) any later version.
 
    This file is distributed in the hope that it will be useful,
@@ -22,7 +22,6 @@
 #include <dirent.h>
 #include <errno.h>
 #include <fcntl.h>
-#include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
 #include <sys/types.h>
@@ -49,7 +48,6 @@
 typedef struct
 {
   char *name;       /* Absolute name of the directory, or NULL.  */
-  /* FIXME - add a DIR* member to make dirfd possible on mingw?  */
 } dir_info_t;
 static dir_info_t *dirs;
 static size_t dirs_allocated;

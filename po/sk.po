@@ -2,14 +2,14 @@
 # Copyright (C) 1997-99, 2000, 2001, 2002 Free Software Foundation, Inc.
 # This file is distributed under the same license as the grep package.
 # Ivan Masár <helix84@centrum.sk>, 2007, 2008, 2009, 2010, 2011, 2012.
-# Ladislav Michnovič <ladislav.michnovic@gmail.com>, 2020, 2021.
+# Ladislav Michnovič <ladislav.michnovic@gmail.com>, 2020, 2021, 2022, 2023.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: grep 3.6.27\n"
+"Project-Id-Version: grep 3.10.12\n"
 "Report-Msgid-Bugs-To: bug-grep@gnu.org\n"
-"POT-Creation-Date: 2021-08-14 12:54-0700\n"
-"PO-Revision-Date: 2021-08-09 17:38+0200\n"
+"POT-Creation-Date: 2023-05-13 01:14-0700\n"
+"PO-Revision-Date: 2023-04-21 16:22+0200\n"
 "Last-Translator: Ladislav Michnovič <ladislav.michnovic@gmail.com>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
 "Language: sk\n"
@@ -17,71 +17,104 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Bugs: Report translation errors to the Language-Team address.\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 3.2.2\n"
 
-#: lib/argmatch.c:132
+#: lib/argmatch.c:145
 #, c-format
 msgid "invalid argument %s for %s"
 msgstr "neplatný argument %s pre %s"
 
-#: lib/argmatch.c:133
+#: lib/argmatch.c:146
 #, c-format
 msgid "ambiguous argument %s for %s"
 msgstr "nejednoznačný argument %s pre %s"
 
-#: lib/argmatch.c:152 lib/argmatch.h:223
+#: lib/argmatch.c:165 lib/argmatch.h:242
 msgid "Valid arguments are:"
-msgstr "Platné argumentu sú:"
+msgstr "Platné argumenty sú:"
 
-#: lib/c-stack.c:187
+#: lib/c-stack.c:186
 msgid "program error"
 msgstr "chyba programu"
 
-#: lib/c-stack.c:188
+#: lib/c-stack.c:187
 msgid "stack overflow"
 msgstr "pretečenie zásobníka"
 
-#: lib/closeout.c:122 src/grep.c:1336
+#: lib/closeout.c:121 src/grep.c:1346
 msgid "write error"
 msgstr "chyba zápisu"
 
-#: lib/dfa.c:896
+#: lib/dfa.c:897
 msgid "unbalanced ["
 msgstr "[ bez náprotivku"
 
-#: lib/dfa.c:1017
+#: lib/dfa.c:1018
 msgid "invalid character class"
 msgstr "neplatná trieda znakov"
 
-#: lib/dfa.c:1143
+#: lib/dfa.c:1146
 msgid "character class syntax is [[:space:]], not [:space:]"
 msgstr "syntax triedy znakov je [[:space:]], nie [:space:]"
 
-#: lib/dfa.c:1210
+#: lib/dfa.c:1222
 msgid "unfinished \\ escape"
 msgstr "nedokončená úniková klauzula \\"
 
-#: lib/dfa.c:1371
+#: lib/dfa.c:1332
+msgid "? at start of expression"
+msgstr "? na začiatku výrazu"
+
+#: lib/dfa.c:1344
+msgid "* at start of expression"
+msgstr "* na začiatku výrazu"
+
+#: lib/dfa.c:1358
+msgid "+ at start of expression"
+msgstr "+ na začiatku výrazu"
+
+#: lib/dfa.c:1413
+msgid "{...} at start of expression"
+msgstr "{...} na začiatku výrazu"
+
+#: lib/dfa.c:1416
 msgid "invalid content of \\{\\}"
 msgstr "neplatný obsah \\{\\}"
 
-#: lib/dfa.c:1374
+#: lib/dfa.c:1418
 msgid "regular expression too big"
 msgstr "regulárny výraz je príliš veľký"
 
-#: lib/dfa.c:1858
+#: lib/dfa.c:1568
+msgid "stray \\ before unprintable character"
+msgstr "zatúlaná \\ pred nevytlačitelným znakom"
+
+#: lib/dfa.c:1570
+msgid "stray \\ before white space"
+msgstr "zatúlaná \\ pred bielym znakom"
+
+#: lib/dfa.c:1574
+#, c-format
+msgid "stray \\ before %lc"
+msgstr "zatúlaná \\ pred %lc"
+
+#: lib/dfa.c:1575
+msgid "stray \\"
+msgstr "zatúlaná \\"
+
+#: lib/dfa.c:1925
 msgid "unbalanced ("
 msgstr "( bez náprotivku"
 
-#: lib/dfa.c:1975
+#: lib/dfa.c:2042
 msgid "no syntax specified"
 msgstr "neuvedená syntax"
 
-#: lib/dfa.c:1986
+#: lib/dfa.c:2053
 msgid "unbalanced )"
 msgstr ") bez náprotivku"
 
-#: lib/error.c:195
+#: lib/error.c:193
 msgid "Unknown system error"
 msgstr "Neznáma systémová chyba"
 
@@ -132,9 +165,9 @@ msgstr "nepodarilo sa zaznamenať aktuálny adresár"
 #: lib/openat-die.c:57
 #, c-format
 msgid "failed to return to initial working directory"
-msgstr "zlyhalo navrátenie do pôvodného aktuálneho adresára"
+msgstr "zlyhal navrát do pôvodného aktuálneho adresára"
 
-#: lib/xbinary-io.c:37
+#: lib/xbinary-io.c:36
 #, c-format
 msgid "failed to set file descriptor text/binary mode"
 msgstr "zlyhalo nastaviť deskriptor súboru do textového/binárneho módu"
@@ -160,83 +193,83 @@ msgstr "zlyhalo nastaviť deskriptor súboru do textového/binárneho módu"
 #. If you don't know what to put here, please see
 #. <https://en.wikipedia.org/wiki/Quotation_marks_in_other_languages>
 #. and use glyphs suitable for your language.
-#: lib/quotearg.c:355
+#: lib/quotearg.c:354
 msgid "`"
 msgstr "„"
 
-#: lib/quotearg.c:356
+#: lib/quotearg.c:355
 msgid "'"
 msgstr "“"
 
-#: lib/regcomp.c:135
+#: lib/regcomp.c:122
 msgid "Success"
 msgstr "Úspešne vykonané"
 
-#: lib/regcomp.c:138
+#: lib/regcomp.c:125
 msgid "No match"
 msgstr "Nič nezodpovedá"
 
-#: lib/regcomp.c:141
+#: lib/regcomp.c:128
 msgid "Invalid regular expression"
 msgstr "Neplatný regulárny výraz"
 
-#: lib/regcomp.c:144
+#: lib/regcomp.c:131
 msgid "Invalid collation character"
 msgstr "Neplatný radiaci znak"
 
-#: lib/regcomp.c:147
+#: lib/regcomp.c:134
 msgid "Invalid character class name"
 msgstr "Neplatný názov triedy znakov"
 
-#: lib/regcomp.c:150
+#: lib/regcomp.c:137
 msgid "Trailing backslash"
 msgstr "Spätná lomka na konci"
 
-#: lib/regcomp.c:153
+#: lib/regcomp.c:140
 msgid "Invalid back reference"
 msgstr "Neplatný spätný odkaz"
 
-#: lib/regcomp.c:156
+#: lib/regcomp.c:143
 msgid "Unmatched [, [^, [:, [., or [="
 msgstr "[, [^, [:, [., alebo [= bez náprotivku"
 
-#: lib/regcomp.c:159
+#: lib/regcomp.c:146
 msgid "Unmatched ( or \\("
 msgstr "( alebo \\( bez náprotivku"
 
-#: lib/regcomp.c:162
+#: lib/regcomp.c:149
 msgid "Unmatched \\{"
 msgstr "\\{ bez náprotivku"
 
-#: lib/regcomp.c:165
+#: lib/regcomp.c:152
 msgid "Invalid content of \\{\\}"
 msgstr "Neplatný obsah \\{\\}"
 
-#: lib/regcomp.c:168
+#: lib/regcomp.c:155
 msgid "Invalid range end"
 msgstr "Neplatný koniec rozsahu"
 
-#: lib/regcomp.c:171
+#: lib/regcomp.c:158
 msgid "Memory exhausted"
 msgstr "Pamäť bola vyčerpaná"
 
-#: lib/regcomp.c:174
+#: lib/regcomp.c:161
 msgid "Invalid preceding regular expression"
 msgstr "Neplatný predošlý regulárny výraz"
 
-#: lib/regcomp.c:177
+#: lib/regcomp.c:164
 msgid "Premature end of regular expression"
 msgstr "Neplatný koniec regulárneho výrazu"
 
-#: lib/regcomp.c:180
+#: lib/regcomp.c:167
 msgid "Regular expression too big"
 msgstr "Regulárny výraz je príliš veľký"
 
-#: lib/regcomp.c:183
+#: lib/regcomp.c:170
 msgid "Unmatched ) or \\)"
 msgstr ") alebo \\) bez náprotivku."
 
-#: lib/regcomp.c:676
+#: lib/regcomp.c:650
 msgid "No previous regular expression"
 msgstr "Žiadny predošlý regulárny výraz"
 
@@ -401,49 +434,54 @@ msgstr "Domovská stránka %s: <%s>\n"
 msgid "General help using GNU software: <%s>\n"
 msgstr "Všeobecná pomoc pri používaní softvéru GNU: <%s>\n"
 
-#: src/grep.c:649
+#: src/dfasearch.c:59
+#, c-format
+msgid "warning: %s"
+msgstr "upozornenie: %s"
+
+#: src/grep.c:656
 msgid "(standard input)"
 msgstr "(štandardný vstup)"
 
-#: src/grep.c:829
+#: src/grep.c:837
 msgid "invalid context length argument"
 msgstr "neplatný argument dĺžky kontextu"
 
-#: src/grep.c:894
+#: src/grep.c:902
 msgid "input is too large to count"
 msgstr "vstup je príliš veľký, aby sa dal spočítať"
 
-#: src/grep.c:1641
+#: src/grep.c:1651
 #, c-format
 msgid "%s: binary file matches"
 msgstr "%s: zhoda v binárnom súbore"
 
-#: src/grep.c:1679
+#: src/grep.c:1689
 #, c-format
 msgid "%s: warning: recursive directory loop"
 msgstr "%s: upozornenie: rekurzívna adresárová slučka"
 
-#: src/grep.c:1899
+#: src/grep.c:1909
 #, c-format
 msgid "%s: input file is also the output"
 msgstr "vstupný súbor %s je tiež uvedený ako výstupný"
 
-#: src/grep.c:1961 src/grep.c:1968
+#: src/grep.c:1971 src/grep.c:1978
 #, c-format
 msgid "Usage: %s [OPTION]... PATTERNS [FILE]...\n"
 msgstr "Použitie: %s [VOĽBA]... VZORY [SÚBOR]...\n"
 
-#: src/grep.c:1963
+#: src/grep.c:1973
 #, c-format
 msgid "Try '%s --help' for more information.\n"
 msgstr "Ďalšie informácie získate príkazom „%s --help“.\n"
 
-#: src/grep.c:1969
+#: src/grep.c:1979
 #, c-format
 msgid "Search for PATTERNS in each FILE.\n"
 msgstr "Hľadať VZORY v každom SÚBORE.\n"
 
-#: src/grep.c:1970
+#: src/grep.c:1980
 #, c-format
 msgid ""
 "Example: %s -i 'hello world' menu.h main.c\n"
@@ -456,7 +494,7 @@ msgstr ""
 "\n"
 "Výber a interpretácia vzoru:\n"
 
-#: src/grep.c:1975
+#: src/grep.c:1985
 #, c-format
 msgid ""
 "  -E, --extended-regexp     PATTERNS are extended regular expressions\n"
@@ -469,7 +507,7 @@ msgstr ""
 "  -G, --basic-regexp        VZOR je základný regulárny výraz (BRE)\n"
 "  -P, --perl-regexp         VZOR je perlovský regulárny výraz\n"
 
-#: src/grep.c:1981
+#: src/grep.c:1991
 #, c-format
 msgid ""
 "  -e, --regexp=PATTERNS     use PATTERNS for matching\n"
@@ -480,16 +518,16 @@ msgid ""
 "  -x, --line-regexp         match only whole lines\n"
 "  -z, --null-data           a data line ends in 0 byte, not newline\n"
 msgstr ""
-"  -e, --regexp=VZOR       použiť na hľadanie zhody VZOR\n"
+"  -e, --regexp=VZOR       použiť VZOR na hľadanie zhody\n"
 "  -f, --file=SÚBOR          získať VZOR zo SÚBORu\n"
 "  -i, --ignore-case         ignorovať rozdiely vo veľkosti písmen\n"
 "      --no-ignore-case      neignorovať rozdiely vo veľkosti písmen "
 "(predvolené)\n"
 "  -w, --word-regexp         vynútiť, aby VZOR zodpovedal len celým slovám\n"
 "  -x, --line-regexp         vynútiť, aby VZOR zodpovedal len celým riadkom\n"
-"  -z, --null-data           údaje končia bajtom 0, nie novým riadkom\n"
+"  -z, --null-data           údaje končia bajtom 0, nie odriadkovaním\n"
 
-#: src/grep.c:1989
+#: src/grep.c:1999
 #, c-format
 msgid ""
 "\n"
@@ -506,7 +544,7 @@ msgstr ""
 "  -V, --version             vypísať informácie o verzii a skončiť\n"
 "      --help                zobraziť tieto informácie a skončiť\n"
 
-#: src/grep.c:1996
+#: src/grep.c:2006
 #, c-format
 msgid ""
 "\n"
@@ -531,7 +569,7 @@ msgstr ""
 "      --label=NÁVESTIE      použiť NÁVESTIE ako predponu názvu súboru pre "
 "štand. vstup\n"
 
-#: src/grep.c:2007
+#: src/grep.c:2017
 #, c-format
 msgid ""
 "  -o, --only-matching       show only nonempty parts of lines that match\n"
@@ -548,7 +586,7 @@ msgstr ""
 "match“\n"
 "  -a, --text                ekvivalentné s --binary-files=text\n"
 
-#: src/grep.c:2014
+#: src/grep.c:2024
 #, c-format
 msgid ""
 "  -I                        equivalent to --binary-files=without-match\n"
@@ -563,13 +601,13 @@ msgstr ""
 "  -d, --directories=OPERÁCIA ako pracovať s adresármi; kde OPERÁCIA je\n"
 "                            „read“ (čítať), „recurse“ (prechádzať) alebo\n"
 "                            „skip“ (preskočiť)\n"
-"  -D, --devices=OPERÁCIA    ako pracovať so zariadeniami, FIFO a socketmi;\n"
+"  -D, --devices=OPERÁCIA    ako pracovať so zariadeniami, FIFO a soketmi;\n"
 "                            OPERÁCIA je „read“ (čítať) alebo "
 "„skip“ (preskočiť)\n"
 "  -r, --recursive           ekvivalentné s --directories=recurse\n"
 "  -R, --dereference-recursive  podobné, ale nasleduje symbolické odkazy\n"
 
-#: src/grep.c:2023
+#: src/grep.c:2033
 #, c-format
 msgid ""
 "      --include=GLOB        search only files that match GLOB (a file "
@@ -587,7 +625,7 @@ msgstr ""
 "vzoru súboru zo SÚBOR\n"
 "      --exclude-dir=VZOR      preskočiť adresáre, ktoré zodpovedajú VZORu\n"
 
-#: src/grep.c:2030
+#: src/grep.c:2040
 #, c-format
 msgid ""
 "  -L, --files-without-match  print only names of FILEs with no selected "
@@ -604,7 +642,7 @@ msgstr ""
 "  -T, --initial-tab         zarovnávať tabulátory (ak je to potrebné)\n"
 "  -Z, --null                vypísať za názvom SÚBORu bajt 0\n"
 
-#: src/grep.c:2036
+#: src/grep.c:2046
 #, c-format
 msgid ""
 "\n"
@@ -619,7 +657,7 @@ msgstr ""
 "  -A, --after-context=POČ   vytlačiť POČ riadkov kontextu za\n"
 "  -C, --context=POČ         vytlačiť POČ riadkov kontextu výstupu\n"
 
-#: src/grep.c:2043
+#: src/grep.c:2053
 #, c-format
 msgid ""
 "  -NUM                      same as --context=NUM\n"
@@ -633,7 +671,7 @@ msgid ""
 "\n"
 msgstr ""
 "  -NUM                  rovnaké ako --context=NUM\n"
-"      --group-separator=SEP  vypíš oddeľovač SEP na riadok medzi zhodami s "
+"      --group-separator=ODD  vypíš oddeľovač ODD na riadok medzi zhodami s "
 "kontextom\n"
 "      --no-group-separator  nevypisuj oddeľovač pre zhody s kontextom\n"
 "      --color[=KEDY],\n"
@@ -642,7 +680,7 @@ msgstr ""
 "  -U, --binary      neodstraňovať znak CR na konci riadka (MSDOS/Windows)\n"
 "\n"
 
-#: src/grep.c:2052
+#: src/grep.c:2062
 #, c-format
 msgid ""
 "When FILE is '-', read standard input.  With no FILE, read '.' if\n"
@@ -650,95 +688,132 @@ msgid ""
 "Exit status is 0 if any line is selected, 1 otherwise;\n"
 "if any error occurs and -q is not given, the exit status is 2.\n"
 msgstr ""
-"Ak SÚBOR je -, číta sa zo štandardného vstupu. Bez SÚBORU číta sa . ak \n"
-"je rekurzia, v opačnom prípade -. Ak sú zadané menej ako dva SÚBORY "
+"Ak SÚBOR je “-“, číta sa zo štandardného vstupu. Bez SÚBORU, číta sa “.”,\n"
+"ak je rekurzia, v opačnom prípade “-“. Ak sú zadané menej ako dva SÚBORY, "
 "predpokladá sa -h.\n"
-"Výstupný chybový kód je 0 ak bol vybraný nejaký riadok,inak je 1;\n"
+"Výstupný chybový kód je 0, ak bol vybraný nejaký riadok,inak je 1;\n"
 "ak sa vyskytne nejaká chyba a nebolo zadané -q, výstupný chybový kód je 2.\n"
 
-#: src/grep.c:2094
+#: src/grep.c:2104
 msgid "conflicting matchers specified"
 msgstr "boli zadané konfliktné špecifikátory"
 
-#: src/grep.c:2101
+#: src/grep.c:2111
 msgid "Perl matching not supported in a --disable-perl-regexp build"
 msgstr ""
 "Podpora Perlu nebola zakompilovaná do tejto binárky s --disable-perl-regexp"
 
-#: src/grep.c:2103
+#: src/grep.c:2113
 #, c-format
 msgid "invalid matcher %s"
 msgstr "neplatný zástupný znak %s"
 
-#: src/grep.c:2538
+#: src/grep.c:2534
 msgid "unknown devices method"
 msgstr "neznáme metódy zariadení"
 
-#: src/grep.c:2580
+#: src/grep.c:2576
 #, c-format
 msgid "warning: --unix-byte-offsets (-u) is obsolete"
-msgstr "Upozornenie: --unix-byte-offsets (-u) sa už nepoužíva"
+msgstr "upozornenie: --unix-byte-offsets (-u) sa už nepoužíva"
 
-#: src/grep.c:2686
+#: src/grep.c:2688
 msgid "invalid max count"
 msgstr "neplatný maximálny počet"
 
-#: src/grep.c:2744
+#: src/grep.c:2746
 msgid "unknown binary-files type"
 msgstr "neznámy typ binárneho súboru"
 
-#: src/grep.c:2829
+#: src/grep.c:2831
 msgid ""
 "Written by Mike Haertel and others; see\n"
-"<https://git.sv.gnu.org/cgit/grep.git/tree/AUTHORS>."
+"<https://git.savannah.gnu.org/cgit/grep.git/tree/AUTHORS>."
 msgstr ""
-"Napísal Mike Haertel iní; pozri\n"
-"<https://git.sv.gnu.org/cgit/grep.git/tree/AUTHORS>."
+"Napísal Mike Haertel a ďalší; pozri\n"
+"<https://git.savannah.gnu.org/cgit/grep.git/tree/AUTHORS>."
 
-#: src/pcresearch.c:85
-msgid "failed to allocate memory for the PCRE JIT stack"
-msgstr "chyba pri alokácii pamäte pre zásobník PCRE JIT"
+#: src/grep.c:2937
+#, c-format
+msgid "warning: GREP_COLOR='%s' is deprecated; use GREP_COLORS='mt=%s'"
+msgstr ""
+"upozornenie: GREP_COLOR='%s' sa už nepoužíva, použite GREP_COLORS='mt=%s'"
 
-#: src/pcresearch.c:137
+#: src/pcresearch.c:92
+#, c-format
+msgid ""
+"\n"
+"grep -P uses PCRE2 %s\n"
+msgstr ""
+"\n"
+"grep -P používa PCRE2 %s\n"
+
+#: src/pcresearch.c:169
+msgid "-P supports only unibyte locales on this platform"
+msgstr "-P podporuje na tejto platforme iba unibyte locales"
+
+#: src/pcresearch.c:171
 msgid "-P supports only unibyte and UTF-8 locales"
 msgstr "-P podporuje iba unibyte a UTF-8 locales"
 
-#: src/pcresearch.c:143
+#: src/pcresearch.c:194
 msgid "the -P option only supports a single pattern"
 msgstr "voľba -P podporuje iba jediný vzor"
 
-#: src/pcresearch.c:187
-msgid "internal error (should never happen)"
-msgstr "vnutorná chyba (nemalo by nikdy nastať)"
-
-#: src/pcresearch.c:230
+#: src/pcresearch.c:290
 msgid "exceeded PCRE's line length limit"
-msgstr "prekročený limit dĺžky riadka PCRE"
+msgstr "prekročenie limitu dĺžky riadka PCRE"
 
-#: src/pcresearch.c:306
+#: src/pcresearch.c:368
 #, c-format
 msgid "%s: memory exhausted"
 msgstr "%s: pamäť bola vyčerpaná"
 
-#: src/pcresearch.c:310
+#: src/pcresearch.c:371
 #, c-format
 msgid "%s: exhausted PCRE JIT stack"
 msgstr "%s: vyčerpaný zásobník PCRE JIT"
 
-#: src/pcresearch.c:315
+#: src/pcresearch.c:375
 #, c-format
 msgid "%s: exceeded PCRE's backtracking limit"
-msgstr "%s: prekročený limit backtrackingu PCRE"
+msgstr "%s: prekročenie limitu backtrackingu PCRE"
 
-#: src/pcresearch.c:319
+#: src/pcresearch.c:380
 #, c-format
-msgid "%s: exceeded PCRE's recursion limit"
-msgstr "%s: prekročený limit rekurzie PCRE"
+msgid "%s: exceeded PCRE's nested backtracking limit"
+msgstr "%s: prekročenie limitu vnoreného spätného sledovania PCRE"
 
-#: src/pcresearch.c:327
+#: src/pcresearch.c:384
+#, c-format
+msgid "%s: PCRE detected recurse loop"
+msgstr "%s: PCRE zistilo rekurzívnu slučku"
+
+#: src/pcresearch.c:389
+#, c-format
+msgid "%s: exceeded PCRE's heap limit"
+msgstr "%s: prekročenie limitu haldy PCRE"
+
+#: src/pcresearch.c:398
 #, c-format
 msgid "%s: internal PCRE error: %d"
 msgstr "%s: vnútorná chyba PCRE: %d"
+
+#~ msgid ""
+#~ "\n"
+#~ "Built with PCRE "
+#~ msgstr ""
+#~ "\n"
+#~ "Zostavené s PCRE "
+
+#~ msgid "JIT internal error: %d"
+#~ msgstr "vnútorná chyba JIT: %d"
+
+#~ msgid "failed to allocate memory for the PCRE JIT stack"
+#~ msgstr "chyba pri alokácii pamäte pre zásobník PCRE JIT"
+
+#~ msgid "internal error (should never happen)"
+#~ msgstr "vnutorná chyba (nemalo by nikdy nastať)"
 
 #~ msgid "%s: option '--%s' doesn't allow an argument\n"
 #~ msgstr "%s: voľba „--%s“ nepripúšťa argument\n"
@@ -796,9 +871,6 @@ msgstr "%s: vnútorná chyba PCRE: %d"
 
 #~ msgid "lseek failed"
 #~ msgstr "nepodarilo sa vykonať lseek()"
-
-#~ msgid "warning: %s: %s"
-#~ msgstr "upozornenie: %s: %s"
 
 #~ msgid "GNU Grep home page: <%s>\n"
 #~ msgstr "Domovská stránka GNU Grep: <%s>\n"

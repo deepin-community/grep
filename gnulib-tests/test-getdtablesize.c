@@ -1,9 +1,9 @@
 /* Test of getdtablesize() function.
-   Copyright (C) 2008-2021 Free Software Foundation, Inc.
+   Copyright (C) 2008-2023 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation; either version 3 of the License, or
+   the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
 
    This program is distributed in the hope that it will be useful,
@@ -24,6 +24,11 @@
 SIGNATURE_CHECK (getdtablesize, int, (void));
 
 #include "macros.h"
+
+/* Tell GCC not to warn about the specific edge cases tested here.  */
+#if __GNUC__ >= 13
+# pragma GCC diagnostic ignored "-Wanalyzer-fd-leak"
+#endif
 
 int
 main (int argc, char *argv[])
